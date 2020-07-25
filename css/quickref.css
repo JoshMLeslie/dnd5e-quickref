@@ -1,3 +1,11 @@
+a {
+  text-decoration: underline;
+}
+
+.item.itemsize {
+  overflow: hidden;
+}
+
 /* ------------------------------------------------------------------------- */
 /* Sections */
 /* ------------------------------------------------------------------------- */
@@ -16,7 +24,7 @@
 }
 
 .section-content {
-    padding:8px;
+    padding: 8px;
     padding-bottom: 0;
     border-radius: 8px;
     margin-top: 0;
@@ -27,8 +35,7 @@
 
 .section-title {
     height: 32px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding: 0 8px;
     font-family: Lora, 'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif;
     font-variant: small-caps;
     font-weight: bold;
@@ -53,13 +60,19 @@
 }
 
 .section-row {
-    font-size: inherit;
+  font-size: inherit;
+
+  /* flex fall-back */
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.section-row:before, .section-row:after{
-    display: table;
-    content: " ";
-    clear: both;
+.section-row[id]:not([id*='modal']) {
+  /* if supports Grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+  grid-auto-rows: minmax(70px, auto);
+  grid-gap: 0.5rem;
 }
 
 .section-row + .section-subtitle {
@@ -102,9 +115,7 @@
 .item-desc {
     font-style: italic;
     font-size: inherit;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    max-lines: 2;
 }
 
 .item-text-container {
@@ -114,10 +125,17 @@
     height: 100%;
 }
 
-
 /* ------------------------------------------------------------------------- */
 /* Colors */
 /* ------------------------------------------------------------------------- */
+#section-ability-checks, #section-ability-checks .item-icon {
+    background-color: teal;
+    border-color: teal;
+}
+#section-ability-checks .text {
+    color: teal;
+}
+
 #section-movement, #section-movement .item-icon {
     background-color: maroon;
     border-color: maroon;
@@ -269,22 +287,42 @@ p:first-child {
     .fontsize { font-size: 12pt; } 
     .iconsize { width: 44px; height: 44px;} 
     .itemsize { height: 44px; width: 100%; } 
-    .modalsize {} 
+    .item-desc {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .item-text-container.text {
+      width: calc(100% - 44px);
+    }
+    .section-row[id]:not([id*='modal']) {
+      grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+      grid-auto-rows: minmax(90px, auto);
+    }
 }
 
 /* Smart phone, landscape */
 @media (min-width:  480px) and (max-width:  767px) {
     .fontsize { font-size: 11pt; }
     .iconsize { width: 40px; height: 40px;}
-    .itemsize { height: 40px; width:  50%; }
-    .modalsize {}
+    .itemsize { height: 40px; width:  100%; }
+    .item-text-container.text {
+      width: calc(100% - 40px);
+    }
+    .section-row[id]:not([id*='modal']) {
+      grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+      grid-auto-rows: minmax(90px, auto);
+    }
 }
 
 /* Tablet, portrait */
 @media (min-width:  768px) and (max-width:  991px) {
     .fontsize { font-size: 11pt; }
     .iconsize { width: 40px; height: 40px;}
-    .itemsize { height: 40px; width:  33%; }
+    .itemsize { min-height: 40px; width:  100%; }
+    .item-text-container.text {
+      width: calc(100% - 40px);
+    }
     .modalsize {
       width: 600px;
       margin: auto;
@@ -295,7 +333,10 @@ p:first-child {
 @media (min-width:  992px) and (max-width: 1199px) {
     .fontsize { font-size: 12pt; }
     .iconsize { width: 44px; height: 44px;}
-    .itemsize { height: 44px; width:  33%; }
+    .itemsize { min-height: 44px; width:  100%; }
+    .item-text-container.text {
+      width: calc(100% - 44px);
+    }
     .modalsize {
       width: 600px;
       margin: auto;
@@ -306,7 +347,10 @@ p:first-child {
 @media (min-width: 1200px) and (max-width: 1599px) {
     .fontsize { font-size: 12pt; }
     .iconsize { width: 44px; height: 44px;}
-    .itemsize { height: 44px; width:  25%; }
+    .itemsize { min-height: 44px; }
+    .item-text-container.text {
+      width: calc(100% - 44px);
+    }
     .modalsize {
       width: 600px;
       margin: auto;
@@ -317,7 +361,10 @@ p:first-child {
 @media (min-width: 1600px) {
     .fontsize { font-size: 12pt; }
     .iconsize { width: 44px; height: 44px;}
-    .itemsize { height: 44px; width:  20%; }
+    .itemsize { min-height: 44px; }
+    .item-text-container.text {
+      width: calc(100% - 44px);
+    }
     .modalsize {
       width: 600px;
       margin: auto;
@@ -328,7 +375,10 @@ p:first-child {
 @media print {
     .fontsize { font-size: 10pt; }
     .iconsize { width: 36px; height: 36px;}
-    .itemsize { height: 36px; width:  33%; }
+    .itemsize { min-height: 36px; }
+    .item-text-container.text {
+      width: calc(100% - 36px);
+    }
     .modalsize {}
 }
 

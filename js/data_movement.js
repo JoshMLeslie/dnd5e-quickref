@@ -93,7 +93,7 @@ data_movement = [
         ]
     },
     {
-        title: "Improvise",
+        title: "Improvise Stunt",
         icon: "juggler",
         subtitle: "Any stunt not on this list",
         description: "Perform any movement or stunt you can imagine",

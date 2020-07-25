@@ -40,7 +40,7 @@ data_action = [
         ]
     },
     {
-        title: "Cast a spell",
+        title: "Cast a spell (a)",
         icon: "magic-swirl",
         subtitle: "Cast time of 1 action",
         description: "Cast a spell with a casting time of 1 action",
@@ -165,7 +165,7 @@ data_action = [
         ]
     },
     {
-        title: "Use class feature",
+        title: "Use class feature (a)",
         icon: "embrassed-energy",
         subtitle: "Some features use actions",
         description: "Use a racial or class feature that uses an action",
@@ -187,7 +187,7 @@ data_action = [
         ]
     },
     {
-        title: "Improvise",
+        title: "Improvise Action",
         icon: "juggler",
         subtitle: "Any action not on this list",
         description: "Perform any action you can imagine",

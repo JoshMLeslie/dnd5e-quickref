@@ -23,7 +23,7 @@ data_reaction = [
         ]
     },
     {
-        title: "Cast a spell",
+        title: "Cast a spell (r)",
         icon: "magic-swirl",
         subtitle: "Cast time of 1 reaction",
         description: "Cast a spell with a casting time of 1 reaction",
