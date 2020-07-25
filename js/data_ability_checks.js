@@ -34,7 +34,7 @@ data_ability_checks_dc = [
 data_ability_checks = [
   {
     title: "Charisma",
-    icon: "quick-slash",
+    icon: "nothing-to-say",
     subtitle: "Deception, Intimidation, Performance, Persuasion",
     description: "",
     reference: "",
@@ -42,7 +42,7 @@ data_ability_checks = [
   },
   {
     title: "Constitution",
-    icon: "quick-slash",
+    icon: "heart-tower",
     subtitle: "none",
     description: "",
     reference: "",
@@ -58,7 +58,7 @@ data_ability_checks = [
   },
   {
     title: "Intelligence",
-    icon: "quick-slash",
+    icon: "brain",
     subtitle: "Arcana, History, Investigation, Nature, Religion",
     description: "",
     reference: "",
@@ -74,7 +74,7 @@ data_ability_checks = [
   },
   {
     title: "Wisdom",
-    icon: "quick-slash",
+    icon: "open-book",
     subtitle: "Animal Handling, Insight, Medicine, Perception, Survival",
     description: "",
     reference: "",
